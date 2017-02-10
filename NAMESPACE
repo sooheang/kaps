@@ -1,0 +1,11 @@
+importFrom("graphics", plot)
+
+importFrom("methods", "new")
+import("Formula")
+import("survival")
+import("coin")
+
+export(kaps.control, kaps, kapsNews, count.mindat, km.curve)
+
+exportClasses(kaps)
+exportMethods(show, print, plot, predict, summary) 

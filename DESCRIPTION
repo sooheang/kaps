@@ -1,0 +1,17 @@
+Package: kaps
+Title: K-Adaptive Partitioning for Survival data
+Date: 2015-08-22
+Version: 1.0.3
+Authors@R: c(person(given = "Soo-Heang", family = "Eo", role = c("aut","cre"), 
+	email = "eo.sooheang@gmail.com"),
+			person(given = "Seung-Mo", family = "Hong", role = "ctb"),
+             person(given = "HyungJun", family = "Cho", role = "aut", 
+	email = "hj4cho@korea.ac.kr"))
+Description: the K-adaptive parititioning (kaps) algorithm for survival data. 
+Depends: R (>= 3.2.0)
+Imports: methods, graphics, survival, Formula, coin
+Suggests: locfit
+LazyData: yes
+License: GPL-3
+Maintainer: Soo-Heang Eo <eo.sooheang@gmail.com>
+NeedsCompilation: yes
