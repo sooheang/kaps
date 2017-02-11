@@ -16,7 +16,8 @@ knitr::opts_chunk$set(
 
 # kaps  
 $K$-adaptive partitioning for survival data 
-[![Build Status](https://travis-ci.org/sooheang/kaps.png?branch=master)](https://travis-ci.org/sooheang/kaps)
+
+[![Build Status](https://travis-ci.org/sooheang/kaps.svg?branch=master)](https://travis-ci.org/sooheang/kaps)
 [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/sooheang/sooheang?branch=master&svg=true)](https://ci.appveyor.com/project/sooheang/kaps)
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/kaps)](http://cran.r-project.org/package=kaps)
 [![Coverage Status](https://img.shields.io/codecov/c/github/sooheang/kaps/master.svg)](https://codecov.io/github/sooheang/kaps?branch=master)
