@@ -10,9 +10,7 @@ f <- Surv(time, status) ~ meta
 fit1 <- kaps(f, data = toy, K = 3)
 
 test_that('Unit test for a main wrapper function, kaps()', {
-  expect_error({
-    fit1 = kaps(f, data = toy, K = 3)  
-  })
+  fit1 = kaps(f, data = toy, K = 3)  
   preds = predict(fit1)
 })
     
