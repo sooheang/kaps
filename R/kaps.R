@@ -30,7 +30,7 @@ kaps <- function(formula, data, K = 2:4, mindat, type = c("perm", "NULL"), ...){
 	n <- nrow(data) # total number of observations concerning with time 
 	rownames(data) <- 1:n
 
-    if(n == 0L) stop("0 (non-NA) cases.")
+  if(n == 0L) stop("0 (non-NA) cases.")
 	if(length(K) < 1) stop("the minimum number of subgroups (K) is greater than 1.")
 	if(length(K) > 10) stop("the maximum number of subgroups (K) is too large.")
 
@@ -140,7 +140,7 @@ kaps.test <- function(formula, data, K = 2:5, minors = kaps.control()){
 	n = nrow(data) # total number of observations concerning with time 
 	rownames(data) <- 1:n
 
-    if(n == 0L) stop("0 (non-NA) cases.")
+  if(n == 0L) stop("0 (non-NA) cases.")
 	if(length(K) < 1) stop("the minimum number of subgroups (K) is greater than 1.")
 	#if(length(K) > 10) stop("the maximum number of subgroups (K) is too large.")
 

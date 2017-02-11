@@ -314,8 +314,8 @@ setMethod("show", "kaps", function(object){
 setGeneric("plot")
 setMethod("plot",signature(x = "kaps", y = "missing"), 
 	function(x, y = NA, K, ...){
-		require(locfit)
-		if(!missing(K)){
+		
+	  if(!missing(K)){
 			# stopping rule 1
 			# the range of K
 			if(!(K %in% x@groups)) stop("Check the range of K in the fitted model. It does not match 'K' in the plot()")

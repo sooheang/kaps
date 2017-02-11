@@ -14,7 +14,7 @@ kaps.fit <- function(formula, data, K, mindat, minors) {
 	if(!is.data.frame(data)) data <- as.data.frame(data)
 
 	## Set the object of result
-    result <- new("kaps")
+  result <- new("kaps")
 	result@formula <- formula
 	
 	##################################
@@ -136,8 +136,9 @@ kaps.perm <- function(fit, newdata, permute = TRUE){
 		# cat("Now, permutation kaps is working. Please, wait a minute.^^\n")
 		# 1. overall permuatation test statistic
 		if(permute){
-			tmp <- surv_test(formula = formula1, data = dat.perm, distribution = approximate(B = minors@N.perm))
-			# Naive approach
+		  tmp <- logrank_test(formula = formula1, data = dat.perm, distribution = approximate(B = minors@N.perm))
+		  
+		  # Naive approach
 			#tmp <- clinfun::permlogrank(formula1, dat.perm)
 			#perm.over.stat <- statistic(tmp)
 			perm.over.pval <- switch(minors@correct,
@@ -183,8 +184,14 @@ kaps.perm <- function(fit, newdata, permute = TRUE){
 			#	perm.pair.pval <- c(perm.pair.pval, pvalue(tmp))
 			#}
 			if(permute){
-				tmp <- try(surv_test(formula = formula1, data = dat.perm.tmp, distribution = approximate(B = minors@N.perm)), silent = TRUE)
-
+			  tmp <- try(logrank_test(
+  			    formula = formula1, 
+  			    data = dat.perm.tmp, 
+  			    distribution = approximate(B = minors@N.perm)
+  			    ), 
+  			    silent = TRUE
+			    )
+			  
 				if(class(tmp) != "try-error"){
 					perm.pair.stat <- c(perm.pair.stat, statistic(tmp))
 					pair.pval <- switch(minors@correct,
@@ -224,4 +231,4 @@ kaps.perm <- function(fit, newdata, permute = TRUE){
 	}
 }
 # END @ Nov 12, 2013
-
+# 1st Modified @ Feb 11, 2017

@@ -1,11 +1,16 @@
-importFrom("graphics", plot)
+importFrom("methods", 'new')
+importFrom("Formula", 'is.Formula', 'as.Formula', 'model.part')
+importFrom("survival", 'survfit', 'survdiff', 'Surv')
+importFrom("coin", 'logrank_test')
+importFrom("grDevices", "colors")
+importFrom("graphics", "abline", "axis", "legend", "lines", "mtext",
+"par", "plot")
+importFrom("stats", "as.formula", "p.adjust", "pchisq", "pnorm",
+"qnorm", "symnum", "update")
+importFrom("utils", "combn")
+importFrom('locfit', 'locfit.censor')
 
-importFrom("methods", "new")
-import("Formula")
-import("survival")
-import("coin")
 
 export(kaps.control, kaps, kapsNews, count.mindat, km.curve)
-
 exportClasses(kaps)
 exportMethods(show, print, plot, predict, summary) 
