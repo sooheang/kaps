@@ -1,7 +1,7 @@
 importFrom("methods", 'new', "show")
 importFrom("Formula", 'is.Formula', 'as.Formula', 'model.part')
 importFrom("survival", 'survfit', 'survdiff', 'Surv')
-importFrom("coin", 'logrank_test')
+importFrom("coin", 'logrank_test', 'approximate', 'pvalue', 'statistic')
 importFrom("grDevices", "colors")
 importFrom("graphics", "abline", "axis", "legend", "lines", "mtext",
 "par", "plot")
