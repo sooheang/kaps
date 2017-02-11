@@ -16,7 +16,6 @@ env:
 matrix:
   include:
   - r: release
-  - r: oldrel
   - r: devel
 
 #notifications
