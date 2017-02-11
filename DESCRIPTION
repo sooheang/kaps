@@ -8,7 +8,7 @@ Authors@R: c(person(given = "Soo-Heang", family = "Eo", role = c("aut","cre"),
              person(given = "HyungJun", family = "Cho", role = "aut", 
 	email = "hj4cho@korea.ac.kr"))
 Description: the K-adaptive parititioning (kaps) algorithm for survival data. 
-Depends: R (>= 3.3.2)
+Depends: R (>= 3.3.0)
 Imports: 
   methods, 
   graphics, 
