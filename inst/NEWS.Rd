@@ -4,6 +4,15 @@
 \title{kaps News}
 \encoding{UTF-8}
 
+% --------------------------------------------------------------------------- %
+\section{Changes in version 1.1.2 2017-08-05}{
+  \itemize{
+    \item Add registerDynamicSymbols.c
+    \item Aad unit.test rountine based on the testthat package.
+    \item Update survival function routine using coin::logrank_test().
+    \item Bug fixed and performance improved
+  }
+}
 % ---------------------------------------------------------------------------- %
 \section{Changes in version 1.0.3 2015-08-22}{
   \itemize{
