@@ -7,7 +7,7 @@ Authors@R: c(person(given = "Soo-Heang", family = "Eo", role = c("aut","cre"),
 			person(given = "Seung-Mo", family = "Hong", role = "ctb"),
              person(given = "HyungJun", family = "Cho", role = "aut", 
 	email = "hj4cho@korea.ac.kr"))
-Description: This package provides some routines to conduct the K-adaptive parititioning (kaps) algorithm. 
+Description: Some routines to conduct the K-adaptive parititioning (kaps) algorithm. 
 Depends: R (>= 3.4.1)
 Imports:
   methods,
