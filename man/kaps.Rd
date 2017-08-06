@@ -50,7 +50,7 @@
     HyungJun Cho \email{hj4cho@korea.ac.kr} \cr
 }
 \references{
-S-H Eo, S-M Hong and H Cho (2014). K-adaptive partitioning for survival data, \emph{submitted}.
+Eo, S. H., Kang, H. J., Hong, S. M., and Cho, H. (2013). K-adaptive partitioning for survival data, with an application to cancer staging. \emph{arXiv preprint arXiv:1306.4615}.
 }
 \seealso{
 	 \code{\link{show}}, \code{\link{plot}}, \code{\link{predict}}, \code{\link{print}} and \code{\link{summary}} for the convenient use of kaps() \cr
