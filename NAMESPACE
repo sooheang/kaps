@@ -10,7 +10,6 @@ importFrom("stats", "as.formula", "p.adjust", "pchisq", "pnorm",
 importFrom("utils", "combn")
 importFrom('locfit', 'locfit.censor')
 
-
 export(kaps.control, kaps, kapsNews, count.mindat, km.curve)
 exportClasses(kaps)
 exportMethods(show, print, plot, predict, summary) 
