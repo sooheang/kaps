@@ -1,6 +1,6 @@
 \name{kaps}
 \alias{kaps}
-\title{K-adaptive partitioing for survival data}
+\title{K-adaptive partitioning for survival data}
 \description{
     Conduct \emph{K}-adaptive partitioning algorithm for survival data
 }
@@ -12,7 +12,7 @@
   \item{data}{data frame with variables used in formula. It needs at least three variables including survival time, censoring status, and a covariate. Multivariate covariates can be supported with "+" sign.}
   \item{K}{number of subgroups used in the model fitting. The default value is 2:4 which means finding optimal subgroups ranging from 2 to 4. 
   }
-  \item{type}{Select a type of algorithm in order to find optimal number of subgroups. Two options are provided: \code{perm} and \code{NULL}. The \code{perm} chooses subgroups using permutation procudures, while the \code{NULL} passes a optimal selection algorithm.
+  \item{type}{Select a type of algorithm in order to find optimal number of subgroups. Two options are provided: \code{perm} and \code{NULL}. The \code{perm} chooses subgroups using permutation procedures, while the \code{NULL} passes a optimal selection algorithm.
   }
   \item{mindat}{
     the minimum number of observations at each subgroup. The default value is 5\% of observations.
@@ -32,7 +32,7 @@
     \item{\code{groupID}:}{information about the subgroup classification}
     \item{\code{index}:}{an index for the optimal subgroup among the candidate K}
     \item{\code{X}:}{test statistic with the worst pair of subgroups for the split set s}
-    \item{\code{Z}:}{the overall test staitstic with K subgroups using the split set s}
+    \item{\code{Z}:}{the overall test statistic with K subgroups using the split set s}
     \item{\code{pair}:}{selected pair of subgroups}
     \item{\code{split.var}:}{selected covariate in the model fitting }
     \item{\code{split.pt}:}{selected set of cut-off points}

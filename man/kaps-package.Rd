@@ -16,7 +16,7 @@ Date: \tab 2014-11-01\cr
 License: \tab GPL-3\cr
 LazyLoad: \tab no\cr
 }
-This package contains some routines to conduct a \emph{K}-adaptive parititioning for survival data (kaps) algorithm. A function \code{kaps()} is an implementation version of our algorithm which provides minimax-based partitioing rule. 
+This package contains some routines to conduct a \emph{K}-adaptive partitioning for survival data (kaps) algorithm. A function \code{kaps()} is an implementation version of our algorithm which provides minimax-based partitioning rule. 
 }
 \author{
 Soo-Heang Eo <hanansh@korea.ac.kr> \cr

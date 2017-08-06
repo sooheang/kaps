@@ -22,8 +22,8 @@ Stouffer.test <- function(p, w) { # p is a vector of p-values
 count.mindat <- function(formula, data, part = 10){
 ## output: the minimum number of samle size.
 
-	formula <- as.Formula(formula)
-	X <- model.part(formula, data, rhs = 1)
+	formula <- Formula::as.Formula(formula)
+	X <- Formula::model.part(formula, data, rhs = 1)
 	subgr <- apply(X, 2, function(x) {
 		res <- table(x) / length(x)
 		res <- res[order(res, decreasing = FALSE)]
@@ -65,7 +65,7 @@ adj.test <- function(x){
 	data$subgroups <- x@groupID
 	#data$group <- gr.sel[,index]
 	f <- update(x@formula, . ~ subgroups)		
-	test.stat <- survdiff(f, data = data)$chisq
+	test.stat <- survival::survdiff(f, data = data)$chisq
 	#v <- length(x@split.pt)
 	#x.mean <- 1 - (2 / (9 * v))
 	#x.std <- sqrt(2 / (9 * v))
@@ -379,7 +379,7 @@ km.curve <- function(object,
 	id.n <- length(unique(object@groupID))
 	f <- update(object@formula, . ~ groupID)
 
-	surv.all <- survfit(f, data = object@data)
+	surv.all <- survival::survfit(f, data = object@data)
 	plot(surv.all, col= 1:id.n, lty = 1:id.n, axes=FALSE, cex=1, lwd= lwd, ...)
 	mtext("Survival months", side=1, line=3, cex=1.2)
 	mtext("Survival probability", side=2, line=3, cex=1.2)

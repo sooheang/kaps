@@ -48,17 +48,3 @@ setClass(Class = "kaps",
 		Options				= "kapsOptions"
 	)
 )
-
-#####################################
-### A class for data by recursive binary splits
-#setClass(Class = "dataset",
-#	representation = representation(
-#		Y = "Surv",
-#		X = "data.frame",
-#		Z = "data.frame",
-#		resid = "vector",
-#		resid.sign = "vector"
-#	)
-#)
-
-# END by Soo-Heang Eo

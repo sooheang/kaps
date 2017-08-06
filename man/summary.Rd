@@ -3,7 +3,7 @@
 \alias{summary}
 \alias{summary,kaps-method}
 \title{Summarize an object "kaps"}
-\description{ This function provides the tabloid information with survival median, 1-, 3-, and 5 years actual suvival time for each partition.}
+\description{ This function provides the tabloid information with survival median, 1-, 3-, and 5 years actual survival time for each partition.}
 \usage{
 	\S4method{summary}{kaps}(object, K)
 }

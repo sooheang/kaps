@@ -6,8 +6,7 @@ pairwise.logrank.test <- function(x, data, formula, rho, adj, splits, shortcut){
 	# treat pre-determined range for predictors
 	data$subgroups <- x
 	pair <- combnat(unique(x),2)
-	#pair <- combn(unique(x),2)
-	
+
 	if(shortcut) pair <- pair[, !duplicated(pair[1,])]
 	if(is.null(ncol(pair))) pair <- as.matrix(pair)
 	
@@ -15,7 +14,7 @@ pairwise.logrank.test <- function(x, data, formula, rho, adj, splits, shortcut){
 	for(i in 1:ncol(pair)){
 		data.tmp <- data[data$subgroups %in% pair[,i],]
 		if(splits == "logrank"){
-			tmp <- try(survdiff(formula = formula, data = data.tmp, rho = rho), silent = TRUE)
+			tmp <- try(survival::survdiff(formula = formula, data = data.tmp, rho = rho), silent = TRUE)
 			if(class(tmp) == "try-error"){
 				res[i,1] <- 0 # pair-wise test statistic
 				res[i,2] <- 1 # pair-wise p-value
@@ -57,7 +56,6 @@ group.sel <- function(x.vec, pt, K, mindat, data, f, minors){
 	### find their groups automatically
 	if(length(unique(x.vec)) < K) stop("The # of unique x must be larger than # of groups.")
 	candid.pt <- combnat(pt, (K-1))
-	#candid.pt <- combn(pt, (K-1))
 	nr <- length(x.vec)
 	cfun <- function(candid, nr, x.vec, mindat,formula){
 		nc <- length(candid)

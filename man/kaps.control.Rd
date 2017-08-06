@@ -24,7 +24,7 @@
   \item{N.perm}{numeric parameter that gives the number of permutation samples used in the kaps algorithm. The default value is 9999.}
   \item{N.boot}{numeric parameter that gives the number of Bootstrap samples used in the bootstrap and permuting kaps algorithm. The default value is 200.}
   \item{alpha}{numeric parameter that provides a significant level in the process of Bootstrap and permuting algorithm.}
-  \item{splits}{character parameter that detemines the kind of pairwise test. Default is logrank test. At this stage, the option \code{exact} is not working.}
+  \item{splits}{character parameter that determines the kind of pairwise test. Default is logrank test. At this stage, the option \code{exact} is not working.}
   %\item{sel}{a character value to determine the kind of selection methods for the pairwise test stestatic in Bootstrap algorithm. The \code{mean} and \code{median} denote the Bootstrap meand and median, \code{trim} describes censoring-related trimmed mean, and \code{test} is the method using proportional test for the Bootsrap samples. In \code{test}, the null hypothesis is p = 0.05.}
   \item{correct}{character parameter to select the criteria for the multiple comparison in the simple permuting kaps algorithm.}
   \item{p.adjust.methods}{character parameter to select the criteria for the multiple comparison.}
