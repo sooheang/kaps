@@ -41,7 +41,7 @@ pred.kaps <- function(split.pt, f, newdata){
 ## output
 # ID number (the observations that assins each terminal group)
 ## FIXME by more efficient way in the near future
-	X <- model.part(f, data = newdata, rhs = 1, drop = FALSE)
+	X <- Formula::model.part(f, data = newdata, rhs = 1, drop = FALSE)
 	nc <- length(split.pt)
 	gClass <- matrix(NA, ncol = nc, nrow = nrow(newdata))
 	gClass <- sapply(split.pt, function(x,y) y > x, y = X)

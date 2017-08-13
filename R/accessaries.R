@@ -22,8 +22,8 @@ Stouffer.test <- function(p, w) { # p is a vector of p-values
 count.mindat <- function(formula, data, part = 10){
 ## output: the minimum number of samle size.
 
-	formula <- as.Formula(formula)
-	X <- model.part(formula, data, rhs = 1)
+	formula <- Formula::as.Formula(formula)
+	X <- Formula::model.part(formula, data, rhs = 1)
 	subgr <- apply(X, 2, function(x) {
 		res <- table(x) / length(x)
 		res <- res[order(res, decreasing = FALSE)]
@@ -61,25 +61,11 @@ combnat <- function(x,m){
 
 ## Calculate Chi-square and Adj. chi-square test statistics among subgroups.
 adj.test <- function(x){
-	data <- x@data
-	data$subgroups <- x@groupID
-	#data$group <- gr.sel[,index]
-	f <- update(x@formula, . ~ subgroups)		
-	test.stat <- survdiff(f, data = data)$chisq
-	#v <- length(x@split.pt)
-	#x.mean <- 1 - (2 / (9 * v))
-	#x.std <- sqrt(2 / (9 * v))
-	#WH <- (test.stat / v)^(1/3)
-	#t <-(WH-x.mean)/(x.std)
-	#WH <- ( (7/9) + sqrt(nu)*((test.stat/ nu )^(1/3) - 1 + (2 / (9 * nu))))^3
-	#WH <- max(0, WH)
-	### ouptut structure
-	# over.stat = overall test statistic for selected candidate
-	# pair.stat = pairwise test statistic for selected candidate
-	# cube.stat = cube-root transformation
-	# WH.stat = t statistic
-	#return(c(over.stat = test.stat, pair.stat = x@X, cube.stat = WH, WH.stat = t))
-	return(c(over.stat = test.stat, pair.stat = x@X))
+  data <- x@data
+  data$subgroups <- x@groupID
+  f <- update(x@formula, . ~ subgroups)		
+  test.stat <- survival::survdiff(f, data = data)$chisq
+  return(c(over.stat = test.stat, pair.stat = x@X))
 }
 
 ## Median Survival Time, refered to the print.survfit() in the survival package
@@ -95,32 +81,34 @@ survmed <- function(surv,time, tol= 1.0e-5) {
 	}
 }
 
-## summary functions for adaptive staging algorithms
-surv.yrs <- function(pt, surv, time){
-	if(any(time == pt)) return(surv[time == pt])
-	else {
-		mod <- min(abs(time - pt))
-		if(mod > 7) {
-			return(0)
-		}
-		if(any(time == (pt + mod))) return(surv[time ==(pt + mod)])
-		else return(surv[time ==(pt - mod)])
-	}
-}
-
 ## summary functions for kaps class
 setGeneric("summary")
 setMethod("summary","kaps", function(object,K){
-	if(!missing(K)) object <- object@results[[which(object@groups == K)]]
+  
+  # user-defined function to calculate survival years
+  surv.yrs <- function(pt, surv, time) {
+    if (any(time == pt)) return(surv[time == pt])
+    else {
+      mod <- min(abs(time - pt))
+      if (mod > 7) {
+        return(0)
+      }
+
+      if (any(time == (pt + mod))) return(surv[time ==(pt + mod)])
+      else return(surv[time == (pt - mod)])
+    }
+  }
+
+  if(!missing(K)) object <- object@results[[which(object@groups == K)]]
 
 	data <- object@data
 	f <- update(object@formula, . ~ 1)
-	surv.root <- survfit(f, data = data)
+	surv.root <- survival::survfit(f, data = data)
 	rootS <- summary(surv.root)
 	
 	data$Group <- object@groupID 
 	f <- update(object@formula, . ~ Group)
-	surv.all <- survfit(f, data = data)
+	surv.all <- survival::survfit(f, data = data)
 	objS <- summary(surv.all)
 	 
 	subgr.surv <- list()
@@ -371,7 +359,7 @@ setMethod("plot",signature(x = "kaps", y = "missing"),
 	}
 )
 
-## plot Kaplan-Meire survival curves for termninal nodes
+## plot Kaplan-Meier survival curves for termninal nodes
 km.curve <- function(object, 
 	x.lab = c(0,24,48,72,96,120, 144, 168, 192, 216, 240), lwd = 1.5, ...){
 
@@ -379,7 +367,7 @@ km.curve <- function(object,
 	id.n <- length(unique(object@groupID))
 	f <- update(object@formula, . ~ groupID)
 
-	surv.all <- survfit(f, data = object@data)
+	surv.all <- survival::survfit(f, data = object@data)
 	plot(surv.all, col= 1:id.n, lty = 1:id.n, axes=FALSE, cex=1, lwd= lwd, ...)
 	mtext("Survival months", side=1, line=3, cex=1.2)
 	mtext("Survival probability", side=2, line=3, cex=1.2)

@@ -34,6 +34,7 @@ To illustrate the function kaps() with various options, we use an artificial dat
 
 ``` r
 library(kaps)
+#> Loading required package: survival
 data('toy', package = 'kaps')
 head(toy)
 #>   meta status time
@@ -71,7 +72,7 @@ fit1
 #> 
 #> Selecting a set of cut-off points:
 #>       Xk df Pr(>|Xk|)  X1 df Pr(>|X1|) adj.Pr(|X1|) cut-off points  
-#> K=3 36.8  2         0 7.2  1    0.0073     0.012101          0, 10 *
+#> K=3 36.8  2         0 7.2  1    0.0073     0.014001          0, 10 *
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 #> 
@@ -91,4 +92,5 @@ References
 ChangeLog
 =========
 
--   v1.1.0: Intitial release from GitHub
+-   v1.1.3: Update survival function
+-   v1.1.0: Intitial release on GitHub

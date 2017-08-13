@@ -4,7 +4,7 @@
 language: r
 sudo: false
 cache: packages
-warnings_are_errors: false
+latex: false
 
 #env
 env:
@@ -12,28 +12,17 @@ env:
   - _R_CHECK_FORCE_SUGGESTS_=false
   - MAKEFLAGS="-j 2"
 
-#matrix: 3x Linux, 1x OS X
-matrix:
-  include:
-  - r: release
-  - r: devel
+include:
+- r: release
+- r: oldrel
+- r: devel
 
-#notifications
-notifications:
-  email:
-    on_success: change
-    on_failure: change
+before_install:
+- mkdir -p ~/.R; echo 'PKG_CXXFLAGS := ${PKG_CXXFLAGS} -Wall -Wextra -pedantic -Werror' > ~/.R/Makevars
 
-
-#after_success
 after_success:
 - Rscript -e 'covr::codecov()'
 
-# Custom parts:
-
-#r_github_packages
-r_github_packages:
-- jimhester/covr
 
 
 
