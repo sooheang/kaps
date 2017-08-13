@@ -10,7 +10,7 @@ Authors@R: c(person(given = "Soo-Heang", family = "Eo", role = c("aut","cre"),
 Description: Multi-way partitioning algorithms are implemented, which divides the data into K heterogeneous subgroups based on the information from a prognostic factor. The resulting subgroups show significant differences in survival. For more details, see Eo et al. (2013) <arXiv:1306.4615>.
 Depends: 
   R (>= 3.4.1),
-  survival (>= 2.39-1) 
+  survival (>= 2.39-1)
 Imports:
   methods,
   graphics, 
