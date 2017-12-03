@@ -1,3 +1,14 @@
+#' Show the NEWS file of the kaps package
+#' 
+#' Show the NEWS file of the kaps package which contains information about
+#' updating and bug fixes.
+#' 
+#' 
+#' @keywords methods
+#' @examples
+#' 
+#' 	kapsNews()
+#' 
 kapsNews <- function(){
 	file.locate <- file.path(system.file(package = "kaps/inst"), "NEWS")
 	file.show(file.locate)
@@ -19,6 +30,33 @@ Stouffer.test <- function(p, w) { # p is a vector of p-values
  
 
 ## Count minimum sample size
+
+
+#' Calculate the minimum sample size when the number of subgroups is given
+#' 
+#' This function calculates the minimum sample size of each partition when the
+#' number of subgroups is given.
+#' 
+#' 
+#' @param formula a Formula object with a response on the left hand side of the
+#' '~' operator, and the covariate terms on the right side. The response has to
+#' be a survival object with survival time and censoring status in the
+#' \link[survival:Surv]{Surv} function. For more details, see
+#' \link[Formula:Formula]{Formula} page.
+#' @param data a data frame with variables used in formula. It needs at least
+#' three variables including survival time, censoring status, and a covariate.
+#' Multivariate covariates can be supported with "+" sign.
+#' @param part a numeric object to determine the number of subgroups we want to
+#' split.
+#' @seealso \code{\link{kaps}}
+#' @keywords kaps
+#' @examples
+#' 
+#' 	data(toy)
+#' 	count.mindat(Surv(time,staus) ~ meta, data = toy, part =5)
+#' 	count.mindat(Surv(time,staus) ~ meta, data = toy, part =10)
+#' 	count.mindat(Surv(time,staus) ~ meta, data = toy)
+#' 
 count.mindat <- function(formula, data, part = 10){
 ## output: the minimum number of samle size.
 
@@ -360,6 +398,22 @@ setMethod("plot",signature(x = "kaps", y = "missing"),
 )
 
 ## plot Kaplan-Meier survival curves for termninal nodes
+
+
+#' Plot Kaplan-Meier survival curves
+#' 
+#' Plot a Kaplan-Meier survival curve for terminal nodes or selected subgroups.
+#' 
+#' This function provides Kaplan-Meier survival curves with the estimated
+#' subgroups by \code{\link{kaps}}.
+#' 
+#' @param object an object from \code{kaps}
+#' @param x.lab X labels specified as arguments
+#' @param lwd line width
+#' @param \dots other arguments for plot object. See \link[graphics:plot]{plot}
+#' for details.
+#' @seealso \code{\link{kaps}}
+#' @keywords methods
 km.curve <- function(object, 
 	x.lab = c(0,24,48,72,96,120, 144, 168, 192, 216, 240), lwd = 1.5, ...){
 
