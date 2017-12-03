@@ -2,20 +2,27 @@
 
 # Header
 language: r
-sudo: false
-cache: packages
-latex: false
+warnings_are_errors: true
+sudo: required
 
+r_github_packages:
+  - jimhester/covr
+  - r-lib/testthat
+  
 #env
 env:
   global:
   - _R_CHECK_FORCE_SUGGESTS_=false
   - MAKEFLAGS="-j 2"
 
+notifications:
+  email:
+    on_success: change
+    on_failure: change
+    
 include:
 - r: release
 - r: oldrel
-- r: devel
 
 before_install:
 - mkdir -p ~/.R; echo 'PKG_CXXFLAGS := ${PKG_CXXFLAGS} -Wall -Wextra -pedantic -Werror' > ~/.R/Makevars
