@@ -10,10 +10,13 @@ kaps is a multi-way partitioning algorithm, which divides the data into *K* hete
 
 You can install:
 
--   the latest released version from CRAN with
+-   the latest released version with
 
     ``` r
-    install.packages("kaps")
+    if (packageVersion("devtools") < 1.6) {
+      install.packages("devtools")
+    }
+    devtools::install_github("sooheang/kaps", ref = 'v1.1.4')
     ```
 
 -   the latest development version from github with
@@ -26,6 +29,11 @@ You can install:
     ```
 
 If you encounter a clear bug, please file a minimal reproducible example on [github](https://github.com/sooheang/kaps/issues).
+
+NOTICE
+------
+
+Since 2015, we ONLY use the github repositoty in order to update `kaps`. So, we do not recommend the use of the `kaps` in CRAN.
 
 Tutorial
 --------
@@ -72,7 +80,7 @@ fit1
 #> 
 #> Selecting a set of cut-off points:
 #>       Xk df Pr(>|Xk|)  X1 df Pr(>|X1|) adj.Pr(|X1|) cut-off points  
-#> K=3 36.8  2         0 7.2  1    0.0073     0.014001          0, 10 *
+#> K=3 36.8  2         0 7.2  1    0.0073     0.012501          0, 10 *
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 #> 
@@ -92,5 +100,6 @@ References
 ChangeLog
 =========
 
+-   v1.1.4: Solve an issue No.5
 -   v1.1.3: Update survival function
 -   v1.1.0: Intitial release on GitHub
