@@ -5,11 +5,19 @@
 \encoding{UTF-8}
 
 % --------------------------------------------------------------------------- %
+\section{Changes in version 1.1.4 2017-12-02}{
+  \itemize{
+    \item Correct a bug: src/*.o file format recognising on Windows  
+  }
+}
+
+% --------------------------------------------------------------------------- %
 \section{Changes in version 1.1.3 2017-08-13}{
   \itemize{
     \item Update appVeyor.yml for Windows CI.
   }
 }
+
 % --------------------------------------------------------------------------- %
 \section{Changes in version 1.1.2 2017-08-05}{
   \itemize{
