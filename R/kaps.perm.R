@@ -40,7 +40,7 @@ kaps.perm <- function(fit, newdata, permute = TRUE){
     # cat("Now, permutation kaps is working. Please, wait a minute.^^\n")
     # 1. overall permuatation test statistic
     if(permute){
-      tmp <- logrank_test(formula = formula1, data = dat.perm, distribution = approximate(B = minors@N.perm))
+      tmp <- logrank_test(formula = formula1, data = dat.perm, distribution = approximate(nresample = minors@N.perm))
       
       # Naive approach
       #tmp <- clinfun::permlogrank(formula1, dat.perm)
@@ -83,7 +83,7 @@ kaps.perm <- function(fit, newdata, permute = TRUE){
       #	perm.pair.stat <- c(perm.pair.stat, 100)
       #	perm.pair.pval <- c(perm.pair.pval, 0)
       #}	else {
-      #	tmp <- surv_test(formula = formula1, data = dat.perm.tmp, distribution = approximate(B = minors@N.perm))
+      #	tmp <- surv_test(formula = formula1, data = dat.perm.tmp, distribution = approximate(nresample = minors@N.perm))
       #	perm.pair.stat <- c(perm.pair.stat, statistic(tmp))
       #	perm.pair.pval <- c(perm.pair.pval, pvalue(tmp))
       #}
@@ -91,7 +91,7 @@ kaps.perm <- function(fit, newdata, permute = TRUE){
         tmp <- try(logrank_test(
           formula = formula1, 
           data = dat.perm.tmp, 
-          distribution = approximate(B = minors@N.perm)
+          distribution = approximate(nresample = minors@N.perm)
         ), 
         silent = TRUE
         )

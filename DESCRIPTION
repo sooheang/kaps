@@ -1,6 +1,6 @@
 Package: kaps
 Title: K-Adaptive Partitioning for Survival Data
-Date: 2017-12-02
+Date: 2019-07-14
 Version: 1.1.4
 Authors@R: c(person(given = "Soo-Heang", family = "Eo", role = c("aut","cre"), 
 	email = "eo.sooheang@gmail.com"),
