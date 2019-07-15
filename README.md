@@ -16,7 +16,7 @@ You can install:
     if (packageVersion("devtools") < 1.6) {
       install.packages("devtools")
     }
-    devtools::install_github("sooheang/kaps", ref = 'v1.1.4')
+    devtools::install_github("sooheang/kaps", ref = 'v1.1.5')
     ```
 
 -   the latest development version from github with
